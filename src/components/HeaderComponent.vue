@@ -15,14 +15,14 @@
 
 
                 </div>
-                <div @click="openhamb = !openhamb" class="hamb-button position-relative">
-                    <div class="nav-mobile" :class="openhamb ? 'd-block' : 'd-none'">
+                <div @click="openhamb = !openhamb" class="hamb-button">
+                        <ul class="nav-mobile" :class="{'nav-mobile-open': openhamb}">
                         <li><router-link :to="{ name: 'home' }">Home</router-link></li>
                         <li><router-link :to="{ name: 'characters' }">Characters</router-link></li>
                         <li><router-link to="">Rules</router-link></li>
                         <li><router-link to="">Team</router-link></li>
                         <li><router-link :to="{ name: 'about' }">Contact Us</router-link></li>
-                    </div>
+                    </ul>
                     <svg viewBox="0 0 100 80" width="40" height="40">
                         <rect width="100" height="20" rx="8"></rect>
                         <rect y="30" width="100" height="20" rx="8"></rect>
@@ -77,9 +77,9 @@ header {
 
         a {
             text-decoration: none;
-            color: #F5E6C9;
             font-size: 24px;
             font-weight: bold;
+            color:#F5E6C9;
         }
     }
 }
@@ -87,6 +87,7 @@ header {
 .hamb-button {
     display: none;
     fill: #F5E6C9;
+    cursor:pointer;
 }
 
 
@@ -105,11 +106,32 @@ header {
     }
 
     .nav-mobile {
-        position: absolute;
-        right: -16px;
-        padding: 13px 20px;
-        top: 72px;
-        background-color: #202020;
+        max-width: 200px;
+    position: absolute;
+    top: 7px;
+    right: 0%;
+    padding: 11px 20px;
+    top: 94px;
+    height: 0px;
+    background-color: #202020;
+    transition: 0.3s;
+    li {
+        a {
+            color:transparent;
+            transition:0s;
+        }
+    }
+
+    
+    }
+
+    .nav-mobile-open {
+        height: 200px!important;
+        li {
+            a {
+                color:#F5E6C9;
+            }
+        }
     }
 
 }
