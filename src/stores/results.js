@@ -2,7 +2,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
-export const useCounterStore = defineStore('counter', () => {
+export const useResultStore = defineStore('results', () => {
 
   const allResults = ref(null)
   const allResultsWithPagination = ref(null)
