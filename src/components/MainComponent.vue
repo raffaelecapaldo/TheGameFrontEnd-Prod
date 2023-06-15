@@ -6,7 +6,7 @@
             </div>
             <div id="slogan" class="d-flex flex-column align-items-center justify-content-center h-100 gap-5">
                 <h1 class="home-title">WAR PRIME</h1>
-                <p class="text-white fs-5">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
+                <p class="text-white fs-5">{{ typedText }}</p>
                 <button><span>PLAY NOW</span></button>
             </div>
         </div>
@@ -18,17 +18,28 @@ export default {
     name: 'MainComponent',
     data() {
         return {
-
+            text: "Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.",
+            typedText: ""
         }
     },
     methods: {
-
+        typeWriter() {
+            let i = 0;
+            const delay = 20;
+            const interval = setInterval(() => {
+                this.typedText += this.text.charAt(i);
+                i++;
+                if (i === this.text.length) {
+                    clearInterval(interval);
+                }
+            }, delay);
+        }
     },
     components: {
-
+        
     },
     mounted() {
-
+        this.typeWriter();
     }
 }
 </script>
