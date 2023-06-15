@@ -1,13 +1,27 @@
 <template>
     <div class="mainContainer">
         <p v-if="loading">Loading</p>
-        <div v-else class="container">
+        <div v-else-if="results" class="container">
             <h1 class="text-uppercase fw-bold home-title text-center pt-5">characters</h1>
+            <div class="d-flex justify-content-end align-items-center gap-2">
+                <h3 class="text-white fs-6 m-0 p-0">Results per page</h3>
+                <select @change="handleChange" name="quantity">
+                    <option value="10">10</option>
+                    <option selected value="20">20</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
             <div>
-                
+                <nav>
+                    <ul class="pagination justify-content-center pt-5">
+                        <li  class="page-item" v-for="link in results.links">
+                            <button v-html="link.label" :disabled="!link.url" class="page-link" :class="link.active && 'active'" @click="handlePagination(link.url)"></button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 justify-content-center py-5">
-                <div v-for="character in results" class="col p-2">
+                <div v-for="character in results.data" class="col p-2">
                     <div class="card w-100 h-100 d-flex flex-column">
                         <img :src="'/img/characters-profile/' + character.type.name.toLowerCase() + '.jpg'"
                             class="card-img-top" :alt="character.type.name">
@@ -23,22 +37,37 @@
 
             </div>
         </div>
-
     </div>
 </template>
 
 <script setup>
+import axios from 'axios';
 import { useResultStore } from '../stores/results'
 import { onMounted, ref, watchEffect } from 'vue';
 
 const store = useResultStore()
-let loading = ref(true)
-let results = ref(null)
-let pagination = ref(20)
+const loading = ref(true)
+const results = ref(null)
+const quantity = ref(20)
 
+const handleChange = (e) => {
+    store.getAllResultsWithPaginate(e.target.value);
+
+}
+
+const handlePagination = (url) =>
+{
+    axios.get(url).then(res => 
+    {
+        if (res.data.success)
+        {
+            results.value = res.data.results
+        }
+    })
+}
 
 onMounted(() => {
-    store.getAllResultsWithPaginate(pagination.value);
+    store.getAllResultsWithPaginate(quantity.value);
 });
 
 watchEffect(() => {
@@ -95,4 +124,6 @@ img {
     letter-spacing: 0;
 
 }
+
+
 </style>

@@ -3,6 +3,16 @@ $fa-font-path: "./webfonts";
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
+
+$pagination-bg: #404040;
+$pagination-border-color: #505050;
+$pagination-color: white;
+$pagination-hover-color: black;
+$pagination-hover-bg: #f1c772;
+$pagination-hover-border-color:#F5E6C9; // Todo in v6: remove
+$pagination-active-color: black;
+$pagination-active-bg:  #f1c772;
+$pagination-active-border-color: #F5E6C9;
 @import 'bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
