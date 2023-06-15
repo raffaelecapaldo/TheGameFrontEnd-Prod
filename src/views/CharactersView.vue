@@ -13,7 +13,7 @@
             </div>
             <div>
                 <nav>
-                    <ul class="pagination justify-content-center pt-5">
+                    <ul class="pagination justify-content-end pt-5">
                         <li  class="page-item" v-for="link in results.links">
                             <button v-html="link.label" :disabled="!link.url" class="page-link" :class="link.active && 'active'" @click="handlePagination(link.url)"></button>
                         </li>
