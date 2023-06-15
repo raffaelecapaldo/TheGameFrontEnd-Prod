@@ -4,10 +4,10 @@
             <div class="box-hero mb-3">
                 <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
             </div>
-            <div id="slogan" class="d-flex flex-column align-items-center justify-content-center h-100 gap-5">
-                <h1 class="home-title">WAR PRIME</h1>
+            <div id="slogan" class="d-flex flex-column align-items-center h-100 gap-5">
+                <h1 class="home-title" :class="{ 'animate': isAnimated }" id="wave-text">WAR PRIME</h1>
                 <p class="text-white fs-5">{{ typedText }}</p>
-                <button><span>PLAY NOW</span></button>
+                <button :class="{ 'opacity-0': isHidden }"><span>PLAY NOW</span></button>
             </div>
         </div>
     </main>
@@ -19,7 +19,9 @@ export default {
     data() {
         return {
             text: "Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.",
-            typedText: ""
+            typedText: "",
+            isAnimated: false,
+            isHidden: true
         }
     },
     methods: {
@@ -39,7 +41,16 @@ export default {
         
     },
     mounted() {
-        this.typeWriter();
+        this.isAnimated = true;
+        setTimeout(() => {
+            document.querySelector('.home').style.opacity = 1;
+        }, 500);
+        setTimeout(() => {
+            this.typeWriter();
+        }, 4000);
+        setTimeout(() => {
+            this.isHidden = false;
+        }, 10000);
     }
 }
 </script>
@@ -50,6 +61,7 @@ main{
     overflow-x: hidden;
     overflow-y: hidden;
     height: calc(100vh - 70px);
+    background-color: #202020;
 }
 .home{
     padding: 0 50px;
@@ -58,7 +70,8 @@ main{
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Play', sans-serif;
-    background-color: #202020;
+    opacity: 0;
+    transition: opacity 8s;
     .home-title{
         font-weight: 700;
         font-size: 48px;
@@ -68,12 +81,34 @@ main{
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        width: 50%;
+    }
+    #wave-text {
+        display: inline-block;
+        animation-name: wave-animation;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+    }
+    @keyframes wave-animation {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        25% {
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
     }
     p{
+        height: 280px;
         font-weight: 400;
         font-size: 15px;
         line-height: 24px;
         letter-spacing: 0.38em;
+        transition: opacity 5s;
     }
     button{
         min-width: 15%;
@@ -84,6 +119,8 @@ main{
         letter-spacing: 0.38em;
         background-color: transparent;
         color: white;
+        transition: opacity 5s;
+        margin-top: -70px;
     }
     .box-image{
         min-width: 1200px;
@@ -154,6 +191,9 @@ main{
         padding: 20px;
         min-width: 100vw;
         max-width: 100vw;
+        .home-title{
+            width: 100%;
+        }
         .landscape{
             display: none;
         }
@@ -188,6 +228,5 @@ main{
     p{
         font-size: 0.8rem !important;
     }
-    
 }
 </style>
