@@ -1,16 +1,13 @@
 <template>
     <main>
-        <div class="home d-flex justify-content-between">
-            <div id="slogan" class="d-flex flex-column justify-content-center h-100 gap-3">
+        <div class="home">
+            <div class="box-hero mb-4">
+                <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
+            </div>
+            <div id="slogan" class="d-flex flex-column justify-content-center align-items-center h-100 gap-5">
                 <h1 class="home-title">WAR PRIME</h1>
                 <p class="text-white">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
-                <button class="d-flex justify-content-center"><span class="text-center">PLAY NOW</span></button>
-            </div>
-            <div class="box-image">
-                <img src="/img/homepage/landscape.png" alt="" class="landscape">
-            </div>
-            <div class="box-image-mobile">
-                <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
+                <button><span>PLAY NOW</span></button>
             </div>
         </div>
     </main>
@@ -46,10 +43,7 @@ export default {
     overflow-y: hidden;
     font-family: 'Play', sans-serif;
     background-color: #202020;
-    display: flex;
-    justify-content: space-between;
     .home-title{
-        height: 80px;
         font-weight: 700;
         font-size: 48px;
         line-height: 36px;
@@ -68,14 +62,13 @@ export default {
     }
     button{
         width: 40%;
-        padding: 6px 57px;
+        // padding: 6px 57px;
         border: 1px solid #F8D67F;
         font-size: 15px;
         line-height: 24px;
         letter-spacing: 0.38em;
         background-color: transparent;
         color: white;
-        text-align: center;
     }
     .box-image{
         min-width: 1200px;
@@ -114,6 +107,9 @@ export default {
     }
 }
 @media screen and (min-width: 768px){
+    .home{
+        background-image: url(../../public/img/homepage/landscape.png);
+    }
     .landscape-mobile{
         display: none;
     }
@@ -124,25 +120,35 @@ export default {
     }
     .home{
         padding: 20px;
-        max-width: 100vw;
-        display: flex;
-        flex-direction: column-reverse;
+        max-width: 100vh;
         .landscape{
             display: none;
         }
-        .landscape-mobile{
+        .box-hero{
+            height: 30vh;
             width: 100%;
+            .landscape-mobile{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            }
         }
-        .home-title{
-            height: 40px;
-            margin-top: 30px;
+        
+        #slogan{
+            z-index: 2;
+            background-color: #202020;
+            max-height: calc(70vh - 170px);
         }
-        h1, p{
+        h1, span{
             text-align: center;
         }
-        button{
-            margin: auto;
+        p{
+            text-align: center;
+            font-size: 0.7rem;
         }
     }
+    .home-title{
+            font-size: 2.5rem !important;
+        }
 }
 </style>
