@@ -1,12 +1,11 @@
 <template>
-  <HeaderComponent/>
-  <RouterView/>
-  <FooterComponent/>
+  <MainComponent/>
 </template>
 
 <script>
-import FooterComponent from '../components/FooterComponent.vue';
-import HeaderComponent from '../components/HeaderComponent.vue';
+import MainComponent from '../components/MainComponent.vue';
+
+
 
 export default {
   name: 'HomeView',
@@ -19,8 +18,7 @@ export default {
 
   },
   components: {
-    HeaderComponent,
-    FooterComponent
+    MainComponent
 },
   mounted() {
 
