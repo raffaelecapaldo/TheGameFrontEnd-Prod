@@ -3,7 +3,7 @@
         <div class="nav-container">
         <nav class="d-flex justify-content-between align-items-center text-uppercase py-3">
             <div class="left">
-                <img class="logo" src="img/logo.png" alt="">
+                <img class="logo" src="/img/logo.png" alt="">
             </div>
             <div class="center d-flex gap-5">
                 <li><router-link :to="{name: 'home'}">Home</router-link></li>
