@@ -8,10 +8,10 @@
                 <div class="charInfo col-12 col-lg-6 pt-5 ">
                     <h1 class="text-center text-uppercase pb-3 px-3">{{ char.name }}</h1>
                     <h5 class="text-uppercase text-center my-4 className">{{ char.type.name }}</h5>
-                    <div class="stats t-shadow d-flex my-4 pt-1 justify-content-evenly">
+                    <div class="stats t-shadow h3 d-flex my-4 pt-1 justify-content-evenly">
                         <div v-for="st in stats" class="stat d-flex align-items-center gap-2">
                             <i :class="icons[st]"></i>
-                            <h6 class="mb-0">{{ char[st] }}</h6>
+                            <h6 class="mb-0 h4">{{ char[st] }}</h6>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -48,10 +48,10 @@ export default {
             char: null,
             stats: ['attack', 'defence', 'speed', 'life'],
             icons: {
-                attack: "fa-solid fa-gun",
-                defence: "fa-solid fa-shield",
-                speed: "fa-solid fa-gauge-simple-high",
-                life: "fa-solid fa-heart-circle-plus"
+                attack: "fa-solid fa-gun text-danger",
+                defence: "fa-solid fa-shield text-primary",
+                speed: "fa-solid fa-gauge-simple-high text-warning",
+                life: "fa-solid fa-heart-circle-plus text-success"
             },
             store: useResultStore(),
         }
@@ -88,7 +88,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 1000px;
+    min-height: 1170px;
     .t-shadow{
         text-shadow: 0 0 10px black;
     }
@@ -116,6 +116,7 @@ main {
 
             .className {
                 text-shadow: 0 0 10px black;
+                color: #ffe5a4;
             }
         }
 
