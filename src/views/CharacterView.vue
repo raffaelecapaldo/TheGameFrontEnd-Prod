@@ -2,7 +2,7 @@
     <main v-if="char" class="bg-dark pageWrap">
         <div class="container showChar text-white">
             <div class="row py-5">
-                <div class="col-12 col-lg-6 d-flex justify-content-center">
+                <div class="col-12 col-lg-6 d-flex justify-content-center charImg">
                     <img class="" :src="'/img/characters/' + (char.type.name).toLowerCase() + '.png'" alt="barbarian">
                 </div>
                 <div class="charInfo col-12 col-lg-6 pt-5 ">
@@ -17,8 +17,11 @@
                     <div class="d-flex">
                         <p v-html="formatDesc(char.type.description)" class="t-shadow h5 ms-4 p-3 text-grey description"></p>
                     </div>
-                    <div class="items p-3">
-                        <h3 class="text-uppercase text-golden">Items</h3>
+                    <div class="items p-3 ms-3 px-4">
+                        <h3 class="text-uppercase  t-shadow">Items</h3>
+                        <div class="pills d-flex gap-2 flex-wrap">
+                            <span v-for="item in char.items" class="rounded-pill bg-dark py-2 px-3 t-yellow">{{ item.name }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,11 +84,23 @@ main {
     .t-shadow{
         text-shadow: 0 0 10px black;
     }
+    .t-shadow-w{
+        text-shadow: 0 0 10px white;
+    }
+    .t-yellow{
+        color: #F8D67F;
+    }
     .showChar {
+        .charImg{
+            animation: shadein 2s ;
+            img{
+                
+            }
+        }
         .charInfo {
+            animation: turnOn 2s;
             margin-top: 6rem;
             backdrop-filter: blur(5px);
-            border-radius: 20%;
 
             .description {
                 max-height: 300px;
@@ -162,4 +177,36 @@ main {
         }
 
     }
-}</style>
+
+}
+@media screen and (max-width: 992px) {
+    .charImg{
+        img{
+            max-width: 500px;
+        }
+    }
+}
+
+@keyframes shadein {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes turnOn {
+    0%{
+        height: 0px;
+        overflow: hidden;
+    }
+    99%{
+        height: 690px;
+        overflow: hidden;
+    }
+    to{
+        overflow: hidden;
+        height: 100%;
+    }
+}
+</style>
