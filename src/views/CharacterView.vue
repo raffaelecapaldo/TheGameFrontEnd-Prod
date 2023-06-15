@@ -17,20 +17,9 @@
                     <div class="d-flex">
                         <p v-html="formatDesc(char.type.description)" class="t-shadow h5 ms-4 p-3 text-grey description"></p>
                     </div>
-
-                    <!-- <div class="stats text-center">
-                    <h3>Stats</h3>
-                    <p>Attack: {{ $char->attack }}</p>
-                    <p>Defence: {{ $char->defence }}</p>
-                    <p>Speed: {{ $char->speed }}</p>
-                    <p>Life: {{ $char->life }}</p>
-                </div>
-                <div class="weapons text-center">
-                    <h2>Weapons</h2>
-                    @foreach ($char->items as $item)
-                        <span class="badge rounded-pill text-bg-info">{{$item->name}}</span>
-                    @endforeach
-                </div> -->
+                    <div class="items p-3">
+                        <h3 class="text-uppercase text-golden">Items</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,10 +37,10 @@ export default {
             char: null,
             stats: ['attack', 'defence', 'speed', 'life'],
             icons: {
-                attack: "fa-solid fa-gun text-danger",
-                defence: "fa-solid fa-shield text-primary",
-                speed: "fa-solid fa-gauge-simple-high text-warning",
-                life: "fa-solid fa-heart-circle-plus text-success"
+                attack: "fa-solid fa-gun",
+                defence: "fa-solid fa-shield",
+                speed: "fa-solid fa-gauge-simple-high",
+                life: "fa-solid fa-heart-circle-plus"
             },
             store: useResultStore(),
         }
@@ -102,6 +91,15 @@ main {
                 max-height: 300px;
                 overflow: auto;
                 padding: 3px;
+            }
+            .text-golden{
+                background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #ffc636 48.47%, rgba(248, 214, 127, 0) 106.34%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                letter-spacing: .1em;
+                font-weight: 600;
+
+
             }
 
             h1 {
