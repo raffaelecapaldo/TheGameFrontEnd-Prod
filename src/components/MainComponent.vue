@@ -6,7 +6,7 @@
             </div>
             <div id="slogan" class="d-flex flex-column justify-content-center align-items-center h-100 gap-5">
                 <h1 class="home-title">WAR PRIME</h1>
-                <p class="text-white">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
+                <p class="text-white fs-5">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
                 <button><span>PLAY NOW</span></button>
             </div>
         </div>
@@ -58,7 +58,6 @@ export default {
         font-size: 15px;
         line-height: 24px;
         letter-spacing: 0.38em;
-        // width: 642px;
     }
     button{
         width: 40%;
@@ -79,48 +78,35 @@ export default {
 
 }
 @media screen and (min-width: 992px){
-    #navbar{
-        ul{
-            padding-left: 40px;
-        }
-    }
-    .dropdown{
-        display: none;
-    }
-    .authentication{
-        padding-left: 50px;
-    }
-}
-@media screen and (max-width: 992px){
-    header{
-        display: flex;
-        justify-content: space-between;
-        ul{
-            gap: 3rem;
-        }
-        #navbar{
-            display: none;
-        }
-        .authentication{
-            display: none;
-        }
-    }
-}
-@media screen and (min-width: 768px){
     .home{
         background-image: url(../../public/img/homepage/landscape.png);
+        background-size: cover;
+    }
+    p{
+        width: 642px;
     }
     .landscape-mobile{
         display: none;
     }
-}
-@media screen and (max-width: 768px){
-    header{
-        padding: 20px;
+    #slogan{
+        align-items: start !important;
     }
+    button{
+        max-width: 8%;
+        padding: 10px 0;
+    }
+    p{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: 0.38em;
+    }
+}
+@media screen and (max-width: 992px){
     .home{
         padding: 20px;
-        max-width: 100vh;
+        min-width: 100vw;
+        max-width: 100vw;
         .landscape{
             display: none;
         }
@@ -150,5 +136,11 @@ export default {
     .home-title{
             font-size: 2.5rem !important;
         }
+}
+@media screen and (max-width: 576px){
+    p{
+        font-size: 0.8rem !important;
+    }
+    
 }
 </style>

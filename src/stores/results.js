@@ -29,7 +29,7 @@ export const useResultStore = defineStore('results', () => {
       {
         if (res.data.success)
         {
-          allResultsWithPagination.value = res.data.results.data
+          allResultsWithPagination.value = res.data.results
         }
 
       })
