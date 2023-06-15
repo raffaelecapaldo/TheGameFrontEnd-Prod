@@ -1,10 +1,10 @@
 <template>
     <main>
         <div class="home">
-            <div class="box-hero mb-4">
+            <div class="box-hero mb-3">
                 <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
             </div>
-            <div id="slogan" class="d-flex flex-column justify-content-center align-items-center h-100 gap-5">
+            <div id="slogan" class="d-flex flex-column align-items-center justify-content-center h-100 gap-5">
                 <h1 class="home-title">WAR PRIME</h1>
                 <p class="text-white fs-5">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
                 <button><span>PLAY NOW</span></button>
@@ -35,6 +35,11 @@ export default {
   
 <style lang="scss" scoped>
 // HOMEPAGE
+main{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: calc(100vh - 70px);
+}
 .home{
     padding: 0 50px;
     height: calc(100vh - 70px);
@@ -60,7 +65,7 @@ export default {
         letter-spacing: 0.38em;
     }
     button{
-        width: 40%;
+        min-width: 15%;
         // padding: 6px 57px;
         border: 1px solid #F8D67F;
         font-size: 15px;
@@ -77,13 +82,44 @@ export default {
     }
 
 }
+@media screen and (min-width: 1600px){
+    #slogan{
+        p{
+            font-size: 1.3rem !important;
+            width: 40% !important;
+        }
+    }
+}
+@media screen and (min-width: 1600px){
+    .home{
+        background-image: url(../../public/img/homepage/landscape.png);
+        background-size: 1800px 1400px !important;
+        background-position: right;
+    }
+    #slogan{
+        height: calc(100vh - 170px) !important;
+        justify-content: center !important;
+    }
+    p{
+        width: 642px !important;
+    }
+}
 @media screen and (min-width: 992px){
     .home{
         background-image: url(../../public/img/homepage/landscape.png);
-        background-size: cover;
+        background-size: 1100px 900px;
+        background-repeat: no-repeat;
+        background-position: right;
+        width: 110%;
+        height: 110%;
+    }
+    #slogan{
+        height: calc(100vh - 170px) !important;
+        justify-content: center !important;
     }
     p{
-        width: 642px;
+        width: 40%;
+        font-size: 1rem !important;
     }
     .landscape-mobile{
         display: none;
