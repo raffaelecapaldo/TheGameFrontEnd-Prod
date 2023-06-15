@@ -125,5 +125,12 @@ img {
 
 }
 
+select, option{
+    background-color: #404040;
+    color: white;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
 
 </style>
