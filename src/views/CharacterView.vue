@@ -1,5 +1,5 @@
 <template>
-    <main v-if="char" class="bg-dark">
+    <main v-if="char" class="bg-dark pageWrap">
         <div class="container showChar text-white">
             <div class="row py-5">
                 <div class="col-12 col-lg-6 d-flex justify-content-center">
@@ -38,7 +38,7 @@
 </template>
   
 <script>
-import axios from 'axios';
+import { useResultStore } from '../stores/results';
 export default {
     name: 'CharacterView',
     data() {
@@ -52,36 +52,50 @@ export default {
                 defence: "fa-solid fa-shield",
                 speed: "fa-solid fa-gauge-simple-high",
                 life: "fa-solid fa-heart-circle-plus"
+            },
+            store: useResultStore(),
+        }
+    },
+    watch: {
+        'store.singleResult'(value) {
+            if (value != this.char) {
+                this.char = value;
+                console.log('valore:', value);
             }
         }
     },
     methods: {
-        getChar() {
-            axios.get(`${this.apiUlr}/${this.charId}`).then(res => {
-                this.char = res.data.results;
-                console.log(this.char);
-            });
+        async getChar() {
+            const store = useResultStore()
+            store.getOneResultWithID(this.charId)              
         }
     },
     components: {
 
     },
     mounted() {
-        this.getChar();
+        this.getChar()
     }
 }
 </script>
   
 <style lang="scss" scoped>
 main {
+    background-image: url('/img/bgs/bg-characters.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 1200px;
     .showChar {
-        .charInfo{
+        .charInfo {
             margin-top: 6rem;
+
             .description {
                 max-height: 300px;
                 overflow: auto;
                 padding: 3px;
             }
+
             h1 {
                 font-weight: 700;
                 font-size: 34px;
@@ -91,7 +105,8 @@ main {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-            .className{
+
+            .className {
                 text-shadow: 0 0 10px black;
             }
         }
@@ -140,5 +155,4 @@ main {
         }
 
     }
-}
-</style>
+}</style>
