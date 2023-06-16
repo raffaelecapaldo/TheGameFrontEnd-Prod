@@ -106,11 +106,11 @@ header {
     }
 
     .nav-mobile {
-        max-width: 200px;
+    width: 100%;
     position: absolute;
     top: 7px;
     right: 0%;
-    padding: 11px 100%;
+    padding: 31px 0px;
     top: 94px;
     height: 0px;
     background-color: #202020;
@@ -129,7 +129,7 @@ header {
     }
 
     .nav-mobile-open {
-        height: 200px!important;
+        height: 232px!important;
         li {
             a {
                 color:#F5E6C9;
