@@ -1,43 +1,45 @@
 <template>
     <header>
-        <div class="nav-container">
+        <div class="nav-container h-100">
         <nav class="d-flex justify-content-between align-items-center text-uppercase py-3">
-            <div class="left">
+            <div class="box-logo">
                 <img class="logo" src="/img/logo.png" alt="">
             </div>
-            <div class="center d-flex gap-5">
-                <li><router-link :to="{name: 'home'}">Home</router-link></li>
-                <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
-                <li><router-link :to="{name: 'rules'}">Rules</router-link></li>
-                <li><router-link :to="{name: 'team'}">Team</router-link></li>
-                <li><router-link :to="{name: 'contact'}">Contact Us</router-link></li>
-                
+            <!-- DESKTOP MENU -->
+            <div class="center h-100">
+                <ul class="d-flex align-items-center gap-5 h-100">
+                    <li><router-link :to="{name: 'home'}">Home</router-link></li>
+                    <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
+                    <li><router-link :to="{name: 'rules'}">Rules</router-link></li>
+                    <li><router-link :to="{name: 'team'}">Team</router-link></li>
+                    <li><router-link :to="{name: 'contact'}">Contact Us</router-link></li>
+                </ul>
 
 
 
                 </div>
+                <!-- HAMBURGER MENU -->
                 <div @click="openhamb = !openhamb" class="hamb-button">
-                        <ul class="nav-mobile" :class="{'nav-mobile-open': openhamb}">
+                    <ul class="nav-mobile d-flex flex-column gap-3 pt-4" :class="{'nav-mobile-open': openhamb}">
                         <li @click="openhamb = true" ><router-link :to="{ name: 'home' }">Home</router-link></li>
                         <li  @click="openhamb = true"><router-link :to="{ name: 'characters' }">Characters</router-link></li>
                         <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
                         <li><router-link  :to="{name: 'team'}">Team</router-link></li>
                         <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
                         <li><a href="http://localhost:8000/login">Login</a></li>
-
+                        <li class="mt-5 ms-5 text-center login-button"><a href="#">Login</a></li>
                     </ul>
-                    <svg viewBox="0 0 100 80" width="40" height="40">
-                        <rect width="100" height="20" rx="8"></rect>
-                        <rect y="30" width="100" height="20" rx="8"></rect>
-                        <rect y="60" width="100" height="20" rx="8"></rect>
-                    </svg>
+                    <i v-if="!this.openhamb" class="fa-solid fa-bars text-white fs-2 p-3"></i>
+                    <i v-if="this.openhamb" class="fa-solid fa-xmark text-white fs-1 p-3"></i> 
                 </div>
+                <!-- LOGIN -->
                 <div class="right">
                     <li><a href="http://localhost:8000/login">Login</a></li>
 
                 </div>
             </nav>
         </div>
+        <div class="overlay" :class="{'show': openhamb}"></div>
     </header>
 </template>
   
@@ -47,7 +49,6 @@ export default {
     data() {
         return {
             openhamb: false
-
         }
     },
     methods: {
@@ -65,28 +66,28 @@ export default {
 <style lang="scss" scoped>
 header {
     background-color: #202020;
+    height: 70px;
+    padding: 0 20px;
+    .box-logo{
+        height: 100%;
+        width: 150px;
+        padding: 8px;
+        .logo {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
 }
-
-.logo {
-    width: 180px;
-}
-
 .nav-container {
-    width: 95%;
-    margin: 0 auto;
-
     li {
         list-style: none;
-
+        border: 2px solid transparent;
         a {
             text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-            color:#928052;
-            &:hover {
-                color:#F5E6C9!important;
-
-            }
+            font-size: 20px;
+            font-weight: 700;
+            color:#F5E6C9;
         }
     }
 }
@@ -96,12 +97,12 @@ header {
     fill: #F5E6C9;
     cursor:pointer;
 }
-
 .router-link-active {
 
-    color:#F5E6C9!important;
+color:#F5E6C9!important;
 
 }
+
 
 
 @media screen and (max-width:1130px) {
@@ -118,44 +119,56 @@ header {
     }
 
     .nav-mobile {
-    width: 100%;
-    position: absolute;
-    top: 7px;
-    right: 0%;
-    padding: 0px 0px;
-    top: 94px;
-    height: 0px;
-    background-color: #202020;
-    transition: 0.3s;
-    overflow: hidden;
-    z-index: 9999;
-    li {
-        margin-left:30px;
-        a {
-            color:transparent;
-            transition:0s;
-        }
+        width: 70%;
+        position: absolute;
+        top: 69px;
+        right: 0;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.5s;
     }
-
-    
-    }
-
     .nav-mobile-open {
-        height: fit-content;
-        padding-bottom:20px;
-        padding-top:20px;
-        li {
-            a {
-                color:#928052;
-                &:hover {
-                    color:#F5E6C9!important;
-
-                }
-            }
-        }
+        background-color: #202020;
+        height: calc(100vh - 70px) !important;
+        opacity: 1;
     }
-
+    .login-button{
+        border: 1px solid #F8D67F;
+        width: 50%;
+    }
+}
+.center {
+    display: none !important;
+}
+.overlay{
+    height: 100vh;
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.397);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.overlay.show {
+  opacity: 1;
 }
 
-
+    @media screen and (min-width:1024px) {
+        header{
+            padding: 0 50px;
+        }
+        .hamb-button {
+            display: none !important;
+            fill: #F5E6C9;
+            cursor:pointer;
+        }
+        .right{
+            display: block !important;
+        }
+        .center{
+            display: block !important;
+        }
+    }
 </style>

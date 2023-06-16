@@ -1,10 +1,10 @@
 <template>
     <main>
-        <div class="home">
+        <div class="hero" :class="{ 'opacity-0': isHidden }">
             <div class="box-hero mb-3">
-                <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
+                <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile w-100">
             </div>
-            <div id="slogan" class="d-flex flex-column align-items-center h-100 gap-5">
+            <div id="slogan" class="d-flex flex-column align-items-center">
                 <div class="waviy" :class="{ loaded: isLoaded }" id="waviy">
                     <span style="--i:1">w</span>
                     <span style="--i:2">a</span>
@@ -15,8 +15,8 @@
                     <span style="--i:7">m</span>
                     <span style="--i:8">e</span>
                 </div>
-                <p class="text-white">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
-                <button :class="{ 'opacity-0': isHidden }"><span>PLAY NOW</span></button>
+                <p :class="{ 'opacity-0': isHiddenP }">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
+                <button :class="{ 'opacity-0': isHiddenButton }"><span>PLAY NOW</span></button>
             </div>
         </div>
     </main>
@@ -27,8 +27,9 @@ export default {
     name: 'MainComponent',
     data() {
         return {
-            isAnimated: false,
             isHidden: true,
+            isHiddenP: true,
+            isHiddenButton: true,
             isLoaded: false
         }
     },
@@ -40,200 +41,140 @@ export default {
         
     },
     mounted() {
-        this.isAnimated = true;
-        setTimeout(() => {
-            document.querySelector('.home').style.opacity = 1;
-        }, 500);
         setTimeout(() => {
             this.isLoaded = true;
-        }, 1000);
+        }, 1500);
         setTimeout(() => {
             this.isHidden = false;
-        }, 5000);
+        }, 1000);
+        setTimeout(() => {
+            this.isHiddenP = false;
+        }, 3000);
+        setTimeout(() => {
+            this.isHiddenButton = false;
+        }, 4800);
     }
 }
 </script>
   
 <style lang="scss" scoped>
+
 // HOMEPAGE
 main{
     overflow-x: hidden;
-    overflow-y: hidden;
     height: calc(100vh - 70px);
     background-color: #202020;
-}
-.home{
-    padding: 0 50px;
-    height: calc(900px - 70px);
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    font-family: 'Play', sans-serif;
-    opacity: 0;
-    transition: opacity 10s;
 
-    #slogan{
-        border: 1px solid red;
-        max-height: 900px;
-    }
-    .waviy {
-        position: relative;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 2s ease-in;
-    }
-    .waviy.loaded {
+    .hero{
+        width: 100vw;
+        overflow-x: hidden;
+        font-family: 'Play', sans-serif;
         opacity: 1;
-        visibility: visible;
-    }
-    .waviy span {
-        position: relative;
-        display: inline-block;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 36px;
-        letter-spacing: 0.10em;
-        background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: flip 3.5s forwards;
-        animation-delay: calc(.3s * var(--i))
-    }
-    @keyframes flip {
-        0%,80% {
-            transform: rotateY(360deg)
-        }
-    }
-    p{
-        height: 280px;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 24px;
-        letter-spacing: 0.38em;
-        transition: opacity 5s;
-    }
-    button{
-        min-width: 15%;
-        border: 1px solid #F8D67F;
-        font-size: 15px;
-        line-height: 24px;
-        letter-spacing: 0.38em;
-        background-color: transparent;
-        color: white;
-        transition: opacity 5s;
-        margin-top: -70px;
-    }
-    .box-image{
-        min-width: 1200px;
-        img{
-            width: 100%;
-        }
-    }
+        transition: opacity  ease 8s ;
 
+        #slogan{
+            height: 100%;
+            padding: 0 20px;
+            gap: 16px;
+        }
+        p{
+            color: white;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: 0.38em;
+            transition: opacity 5s;
+            text-align: center;
+            margin: 0;
+        }
+        button{
+            min-width: 15%;
+            padding: 10px;
+            border: 1px solid #F8D67F;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: 0.38em;
+            background-color: transparent;
+            color: white;
+            transition: opacity 5s;
+
+        }
+        .box-image{
+            min-width: 1200px;
+            img{
+                width: 100%;
+            }
+        }
+
+        // ANIMATION TITLE
+        .waviy {
+            position: relative;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+        .waviy.loaded {
+            opacity: 1;
+            visibility: visible;
+        }
+        .waviy span {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 36px;
+            letter-spacing: 0.10em;
+            background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: flip 2.5s forwards;
+            animation-delay: calc(.3s * var(--i))
+        }
+        @keyframes flip {
+            0%,80% {
+                transform: rotateY(360deg)
+            }
+        }    
+    }   
 }
 
 // MEDIAQUERY
-@media screen and (min-width: 1600px){
-    #slogan{
-        p{
-            font-size: 1.3rem !important;
-            width: 40% !important;
-            justify-content: center !important;
-            align-items: center !important;
-        }
-    }
-}
-@media screen and (min-width: 1600px){
-    .home{
-        background-image: url(../../public/img/homepage/landscape.png);
-        background-position: right;
-        width: 110%;
-        max-height: 900px;
-    }
-    #slogan{
-        height: calc(100vh - 170px) !important;
-        justify-content: center !important;
-    }
-    p{
-        width: 642px !important;
-    }
-}
-@media screen and (min-width: 992px){
-    .home{
-        background-image: url(../../public/img/homepage/landscape.png);
-        background-repeat: no-repeat;
-        background-position: right;
-        width: 110%;
-        max-height: 900px;
-    }
-    #slogan{
-        justify-content: center !important;
-    }
-    p{
-        width: 40%;
-        font-size: 1rem !important;
-    }
-    .landscape-mobile{
+@media screen and (min-width: 1024px){
+    .box-hero{
         display: none;
     }
+    .hero{
+        background-image: url(../../public/img/homepage/landscape.png);
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: calc(850px - 70px);
+
+    }
+    .waviy span{
+        font-size: 48px !important;
+    }
     #slogan{
+        justify-content: center;
         align-items: start !important;
-    }
-    button{
-        max-width: 8%;
-        padding: 10px 0;
-    }
-    p{
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 24px;
-        letter-spacing: 0.38em;
-    }
-}
-@media screen and (max-width: 992px){
-    .home{
-        padding: 20px;
-        min-width: 100vw;
-        max-width: 100vw;
-        .landscape{
-            display: none;
-        }
-        .box-hero{
-            height: 30vh;
-            width: 100%;
-            .landscape-mobile{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            }
-        }
-        
-        #slogan{
-            z-index: 2;
-            background-color: #202020;
-            max-height: calc(70vh - 170px);
-            justify-content: space-around !important;
-        }
-        h1, span{
-            text-align: center;
-        }
+        width: 45%;
+        padding: 0 50px !important;
+        gap: 40px !important;
         p{
-            text-align: center;
-            font-size: 1.2rem !important;
-            border: 1px solid red;
+            font-size: 1.3rem;
+            text-align: start;
         }
     }
 }
-@media screen and (max-width: 576px){
-    p{
-        font-size: 0.5rem !important;
-        margin-top: -40px;
-        max-height: 250px;
+@media screen and (max-width: 414px){
+    .box-hero{
+        height: 280px;
+        overflow: hidden;
     }
-    .home{
-        margin-top: -50px;
+    p{
+        font-size: 12px !important;
     }
 }
 </style>
