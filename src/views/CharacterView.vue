@@ -20,7 +20,7 @@
                     <div class="items p-3 ms-3 px-4">
                         <h3 class="text-uppercase  t-shadow">Items</h3>
                         <div class="pills d-flex gap-2 flex-wrap">
-                            <span v-for="item in char.items" class="rounded-pill bg-dark py-2 px-3 t-yellow">{{ item.name }}</span>
+                            <span v-for="item in char.items" class=" bg-dark py-1 px-4 t-yellow">{{ item.name }}</span>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@ main {
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #B07156;
+            background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
             border-radius: 3px;
         }
 
@@ -158,7 +158,7 @@ main {
         }
 
         ::-moz-scrollbar-thumb {
-            background-color: #B07156;
+            background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
             border-radius: 3px;
         }
 
@@ -172,7 +172,7 @@ main {
         }
 
         ::-ms-scrollbar-thumb {
-            background-color: #B07156;
+            background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
             border-radius: 3px;
         }
 
