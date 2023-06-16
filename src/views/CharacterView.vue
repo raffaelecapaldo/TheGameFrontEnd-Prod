@@ -113,8 +113,6 @@ main {
                 -webkit-text-fill-color: transparent;
                 letter-spacing: .1em;
                 font-weight: 600;
-
-
             }
 
             h1 {
