@@ -5,7 +5,16 @@
                 <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile">
             </div>
             <div id="slogan" class="d-flex flex-column align-items-center h-100 gap-5">
-                <h1 class="home-title" :class="{ 'animate': isAnimated }" id="wave-text">WAR PRIME</h1>
+                <div class="waviy" :class="{ loaded: isLoaded }" id="waviy">
+                    <span style="--i:1">w</span>
+                    <span style="--i:2">a</span>
+                    <span style="--i:3" class="pr-3">r</span>
+                    <span style="--i:4">p</span>
+                    <span style="--i:5">r</span>
+                    <span style="--i:6">i</span>
+                    <span style="--i:7">m</span>
+                    <span style="--i:8">e</span>
+                </div>
                 <p class="text-white fs-5">{{ typedText }}</p>
                 <button :class="{ 'opacity-0': isHidden }"><span>PLAY NOW</span></button>
             </div>
@@ -21,7 +30,8 @@ export default {
             text: "Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.",
             typedText: "",
             isAnimated: false,
-            isHidden: true
+            isHidden: true,
+            isLoaded: false
         }
     },
     methods: {
@@ -35,7 +45,8 @@ export default {
                     clearInterval(interval);
                 }
             }, delay);
-        }
+        },
+        
     },
     components: {
         
@@ -46,11 +57,14 @@ export default {
             document.querySelector('.home').style.opacity = 1;
         }, 500);
         setTimeout(() => {
+            this.isLoaded = true;
+        }, 1000);
+        setTimeout(() => {
             this.typeWriter();
-        }, 4000);
+        }, 5500);
         setTimeout(() => {
             this.isHidden = false;
-        }, 10000);
+        }, 11000);
     }
 }
 </script>
@@ -71,35 +85,35 @@ main{
     overflow-y: hidden;
     font-family: 'Play', sans-serif;
     opacity: 0;
-    transition: opacity 8s;
-    .home-title{
+    transition: opacity 10s;
+    .waviy {
+        position: relative;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 2s ease-in;
+    }
+    .waviy.loaded {
+        opacity: 1;
+        visibility: visible;
+    }
+    .waviy span {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
         font-weight: 700;
         font-size: 48px;
         line-height: 36px;
-        letter-spacing: 0.38em;
+        letter-spacing: 0.10em;
         background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        width: 50%;
+        animation: flip 3.5s forwards;
+        animation-delay: calc(.3s * var(--i))
     }
-    #wave-text {
-        display: inline-block;
-        animation-name: wave-animation;
-        animation-duration: 5s;
-        animation-iteration-count: 1;
-    }
-    @keyframes wave-animation {
-        0% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        25% {
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
+    @keyframes flip {
+        0%,80% {
+            transform: rotateY(360deg)
         }
     }
     p{
@@ -112,7 +126,6 @@ main{
     }
     button{
         min-width: 15%;
-        // padding: 6px 57px;
         border: 1px solid #F8D67F;
         font-size: 15px;
         line-height: 24px;
@@ -191,9 +204,6 @@ main{
         padding: 20px;
         min-width: 100vw;
         max-width: 100vw;
-        .home-title{
-            width: 100%;
-        }
         .landscape{
             display: none;
         }
@@ -220,9 +230,6 @@ main{
             font-size: 0.7rem;
         }
     }
-    .home-title{
-            font-size: 2.5rem !important;
-        }
 }
 @media screen and (max-width: 576px){
     p{
