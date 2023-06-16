@@ -11,7 +11,7 @@
   - [Contributing](#contributing)
 
 ## About this project
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 
 War Prime is an exciting fantasy game set in a captivating world of magic and adventure. Built using the Laravel and Vue.js frameworks, this project showcases the collaborative efforts of five talented individuals, all students of Boolean.
 
@@ -19,7 +19,7 @@ In War Prime, players are immersed in a rich fantasy setting filled with diverse
 
 
 ## (Fake) Key Features
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 
 - **Engaging Gameplay**: Experience an immersive gameplay with exciting quests, intense battles, and captivating storylines that keep players hooked.
 
@@ -32,7 +32,7 @@ In War Prime, players are immersed in a rich fantasy setting filled with diverse
 - **Quests and Challenges**: Embark on thrilling quests, solve puzzles, and face challenging encounters as you unravel the secrets of War Prime.
 
 ## Team Members
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 - [filecc](https://github.com/filecc)
 - [lip-7](https://github.com/Lip-7)
 - [nicolozibra1](https://github.com/nicolozibra1)
@@ -42,7 +42,7 @@ In War Prime, players are immersed in a rich fantasy setting filled with diverse
 
 
 ## How to run this project
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 
 ### Suggested Setup
 
@@ -99,7 +99,7 @@ But  you can eventually customize them in the `app/config/cors.php` file
 
 
 ## Screenshot
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 
 Homepage
 
@@ -115,6 +115,6 @@ Single Characters
 
 
 ## Contributing
-[Back to index](##table-of-content)
+[Back to index](##table-of-contents)
 
 We welcome contributions from the community to enhance War Prime. If you have any suggestions, bug fixes, or new features, feel free to submit a pull request.
