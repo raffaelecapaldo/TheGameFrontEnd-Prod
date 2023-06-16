@@ -15,7 +15,7 @@
                     <span style="--i:7">m</span>
                     <span style="--i:8">e</span>
                 </div>
-                <p class="text-white fs-5">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
+                <p class="text-white">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
                 <button :class="{ 'opacity-0': isHidden }"><span>PLAY NOW</span></button>
             </div>
         </div>
@@ -49,7 +49,7 @@ export default {
         }, 1000);
         setTimeout(() => {
             this.isHidden = false;
-        }, 11000);
+        }, 5000);
     }
 }
 </script>
@@ -64,13 +64,18 @@ main{
 }
 .home{
     padding: 0 50px;
-    height: calc(100vh - 70px);
+    height: calc(900px - 70px);
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Play', sans-serif;
     opacity: 0;
     transition: opacity 10s;
+
+    #slogan{
+        border: 1px solid red;
+        max-height: 900px;
+    }
     .waviy {
         position: relative;
         visibility: hidden;
@@ -128,19 +133,24 @@ main{
     }
 
 }
+
+// MEDIAQUERY
 @media screen and (min-width: 1600px){
     #slogan{
         p{
             font-size: 1.3rem !important;
             width: 40% !important;
+            justify-content: center !important;
+            align-items: center !important;
         }
     }
 }
 @media screen and (min-width: 1600px){
     .home{
         background-image: url(../../public/img/homepage/landscape.png);
-        background-size: 1800px 1400px !important;
         background-position: right;
+        width: 110%;
+        max-height: 900px;
     }
     #slogan{
         height: calc(100vh - 170px) !important;
@@ -153,14 +163,12 @@ main{
 @media screen and (min-width: 992px){
     .home{
         background-image: url(../../public/img/homepage/landscape.png);
-        background-size: 1100px 900px;
         background-repeat: no-repeat;
         background-position: right;
         width: 110%;
-        height: 110%;
+        max-height: 900px;
     }
     #slogan{
-        height: calc(100vh - 170px) !important;
         justify-content: center !important;
     }
     p{
@@ -206,20 +214,23 @@ main{
             z-index: 2;
             background-color: #202020;
             max-height: calc(70vh - 170px);
+            justify-content: space-around !important;
         }
         h1, span{
             text-align: center;
         }
         p{
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 1.2rem !important;
+            border: 1px solid red;
         }
     }
 }
 @media screen and (max-width: 576px){
     p{
-        font-size: 0.8rem !important;
+        font-size: 0.5rem !important;
         margin-top: -40px;
+        max-height: 250px;
     }
     .home{
         margin-top: -50px;
