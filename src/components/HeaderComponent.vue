@@ -11,17 +11,20 @@
                 <li><router-link to="http://rules">Rules</router-link></li>
                 <li><router-link to="http://team">Team</router-link></li>
                 <li><router-link :to="{name: 'about'}">Contact Us</router-link></li>
+                
 
 
 
                 </div>
                 <div @click="openhamb = !openhamb" class="hamb-button">
                         <ul class="nav-mobile" :class="{'nav-mobile-open': openhamb}">
-                        <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                        <li><router-link :to="{ name: 'characters' }">Characters</router-link></li>
-                        <li><router-link to="">Rules</router-link></li>
-                        <li><router-link to="">Team</router-link></li>
-                        <li><router-link :to="{ name: 'about' }">Contact Us</router-link></li>
+                        <li @click="openhamb = true" ><router-link :to="{ name: 'home' }">Home</router-link></li>
+                        <li  @click="openhamb = true"><router-link :to="{ name: 'characters' }">Characters</router-link></li>
+                        <li><router-link  to="/boooh" >Rules</router-link></li>
+                        <li><router-link  to="/booooh">Team</router-link></li>
+                        <li><router-link @click="openhamb = true" :to="{ name: 'about' }">Contact Us</router-link></li>
+                        <li><a href="http://localhost:8000/login">Login</a></li>
+
                     </ul>
                     <svg viewBox="0 0 100 80" width="40" height="40">
                         <rect width="100" height="20" rx="8"></rect>
@@ -30,7 +33,7 @@
                     </svg>
                 </div>
                 <div class="right">
-                    <li><router-link to="http://login">Login</router-link></li>
+                    <li><a href="http://localhost:8000/login">Login</a></li>
 
                 </div>
             </nav>
@@ -119,7 +122,7 @@ header {
     position: absolute;
     top: 7px;
     right: 0%;
-    padding: 31px 0px;
+    padding: 0px 0px;
     top: 94px;
     height: 0px;
     background-color: #202020;
@@ -138,7 +141,9 @@ header {
     }
 
     .nav-mobile-open {
-        height: 232px!important;
+        height: fit-content;
+        padding-bottom:20px;
+        padding-top:20px;
         li {
             a {
                 color:#928052;
