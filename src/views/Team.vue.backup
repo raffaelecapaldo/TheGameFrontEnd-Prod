@@ -1,0 +1,115 @@
+<template>
+    <p v-if="loading">Loading</p>
+    <div v-else="members" class="mainContainer">
+        <div class="container px-4">
+            <h1 class="text-uppercase fw-bold home-title text-center py-5">team members</h1>
+            <div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-center py-5">
+                <div v-for="member in members" class="col p-2">
+                    <div class="card w-100 h-100 d-flex flex-column">
+                        <img :src="member.photo" class="card-img-top" :alt="member.name + ' ' + member.surname">
+                        <div class="card-body">
+                            <h5 class="char-title"> {{ member.name + ' ' + member.surname }}</h5>
+                            <p class="text-uppercase">{{ member.title }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+
+//non so usare ste compositions
+import axios from 'axios'
+
+export default {
+    name: 'HomeView',
+    data() {
+        return {
+            members: [],
+        }
+    },
+    methods: {
+
+    },
+    components: {
+
+    },
+    mounted() {
+        axios.get('http://127.0.0.1:8000/api/team_members').then(res => {
+            if (res.data.success) {
+                this.members = res.data.results
+            }
+        })
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+@use '../../src/assets/styles/partials/variables' as *;
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    height: 100%;
+    min-height: 200px;
+}
+
+.mainContainer {
+    min-height: 100dvh;
+}
+
+.mainContainer,
+.card {
+    background-color: $primary-dark;
+}
+
+.card {
+    color: white;
+    background-color: #404040;
+    border-radius: 0 !important;
+}
+
+.home-title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 36px;
+    letter-spacing: 0.38em;
+    background: linear-gradient(90.02deg, rgba(248, 214, 127, 0) -4.78%, #F8D67F 48.47%, rgba(248, 214, 127, 0) 106.34%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media screen and (max-width: 500px) {
+        font-size: 34px;
+    }
+}
+
+.char-title {
+    background: linear-gradient(90.02deg, rgba(152, 112, 11) -4.78%, #F8D67F 48.47%, rgba(190, 148, 40, 0) 106.34%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 15px;
+    letter-spacing: 0;
+
+}
+
+select,
+option {
+    background-color: #404040;
+    color: white;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+</style>

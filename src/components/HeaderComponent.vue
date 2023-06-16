@@ -1,28 +1,32 @@
 <template>
     <header>
         <div class="nav-container h-100">
-            <nav class="d-flex justify-content-between align-items-center text-uppercase h-100">
-                <div class="box-logo">
-                    <img class="logo" src="/img/logo.png" alt="">
-                </div>
-                <!-- DESKTOP MENU -->
-                <div class="center h-100">
-                    <ul class="d-flex align-items-center gap-5 h-100">
-                        <li><router-link :to="{name: 'home'}">Home</router-link></li>
-                        <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
-                        <li><router-link to="">Rules</router-link></li>
-                        <li><router-link to="">Team</router-link></li>
-                        <li><router-link :to="{name: 'about'}">Contact Us</router-link></li>
-                    </ul>
+        <nav class="d-flex justify-content-between align-items-center text-uppercase py-3">
+            <div class="box-logo">
+                <img class="logo" src="/img/logo.png" alt="">
+            </div>
+            <!-- DESKTOP MENU -->
+            <div class="center h-100">
+                <ul class="d-flex align-items-center gap-5 h-100">
+                    <li><router-link :to="{name: 'home'}">Home</router-link></li>
+                    <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
+                    <li><router-link :to="{name: 'rules'}">Rules</router-link></li>
+                    <li><router-link :to="{name: 'team'}">Team</router-link></li>
+                    <li><router-link :to="{name: 'contact'}">Contact Us</router-link></li>
+                </ul>
+
+
+
                 </div>
                 <!-- HAMBURGER MENU -->
                 <div @click="openhamb = !openhamb" class="hamb-button">
                     <ul class="nav-mobile d-flex flex-column gap-3 pt-4" :class="{'nav-mobile-open': openhamb}">
-                        <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                        <li><router-link :to="{ name: 'characters' }">Characters</router-link></li>
-                        <li><router-link to="">Rules</router-link></li>
-                        <li><router-link to="">Team</router-link></li>
-                        <li><router-link :to="{ name: 'about' }">Contact Us</router-link></li>
+                        <li @click="openhamb = true" ><router-link :to="{ name: 'home' }">Home</router-link></li>
+                        <li  @click="openhamb = true"><router-link :to="{ name: 'characters' }">Characters</router-link></li>
+                        <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
+                        <li><router-link  :to="{name: 'team'}">Team</router-link></li>
+                        <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
+                        <li><a href="http://localhost:8000/login">Login</a></li>
                         <li class="mt-5 ms-5 text-center login-button"><a href="#">Login</a></li>
                     </ul>
                     <i v-if="!this.openhamb" class="fa-solid fa-bars text-white fs-2 p-3"></i>
@@ -30,7 +34,8 @@
                 </div>
                 <!-- LOGIN -->
                 <div class="right">
-                    <li><router-link to="">Login</router-link></li>
+                    <li><a href="http://localhost:8000/login">Login</a></li>
+
                 </div>
             </nav>
         </div>
@@ -85,6 +90,26 @@ header {
             color:#F5E6C9;
         }
     }
+}
+
+.hamb-button {
+    display: none;
+    fill: #F5E6C9;
+    cursor:pointer;
+}
+.router-link-active {
+
+color:#F5E6C9!important;
+
+}
+
+
+
+@media screen and (max-width:1130px) {
+    .center {
+        display: none !important;
+    }
+
     .right {
         display: none;
     }
