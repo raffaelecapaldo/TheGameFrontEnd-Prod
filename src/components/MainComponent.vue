@@ -61,7 +61,7 @@ export default {
 
 // HOMEPAGE
 main{
-    overflow-x: hidden;
+    overflow: hidden;
     height: calc(100vh - 70px);
     background-color: #202020;
 

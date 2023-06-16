@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="nav-container h-100">
-        <nav class="d-flex justify-content-between align-items-center text-uppercase py-3">
+        <nav class="d-flex justify-content-between align-items-center text-uppercase py-3 h-100">
             <div class="box-logo">
                 <img class="logo" src="/img/logo.png" alt="">
             </div>
@@ -26,8 +26,7 @@
                         <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
                         <li><router-link  :to="{name: 'team'}">Team</router-link></li>
                         <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
-                        <li><a href="http://localhost:8000/login">Login</a></li>
-                        <li class="mt-5 ms-5 text-center login-button"><a href="#">Login</a></li>
+                        <li class="mt-5 ms-5 text-center" id="login-button"><a href="http://localhost:8000/login">Login</a></li>
                     </ul>
                     <i v-if="!this.openhamb" class="fa-solid fa-bars text-white fs-2 p-3"></i>
                     <i v-if="this.openhamb" class="fa-solid fa-xmark text-white fs-1 p-3"></i> 
@@ -69,7 +68,7 @@ header {
     height: 70px;
     padding: 0 20px;
     .box-logo{
-        height: 100%;
+        height: 70px;
         width: 150px;
         padding: 8px;
         .logo {
@@ -132,7 +131,7 @@ color:#F5E6C9!important;
         height: calc(100vh - 70px) !important;
         opacity: 1;
     }
-    .login-button{
+    #login-button{
         border: 1px solid #F8D67F;
         width: 50%;
     }
