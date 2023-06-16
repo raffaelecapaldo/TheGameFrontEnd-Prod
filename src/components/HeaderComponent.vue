@@ -110,12 +110,15 @@ header {
     position: absolute;
     top: 7px;
     right: 0%;
-    padding: 11px 20px;
+    padding: 11px 100%;
     top: 94px;
     height: 0px;
     background-color: #202020;
     transition: 0.3s;
+    overflow: hidden;
+    z-index: 9999;
     li {
+        margin-left:30px;
         a {
             color:transparent;
             transition:0s;
