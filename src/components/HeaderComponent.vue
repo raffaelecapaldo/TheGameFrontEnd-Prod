@@ -8,8 +8,8 @@
             <div class="center d-flex gap-5">
                 <li><router-link :to="{name: 'home'}">Home</router-link></li>
                 <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
-                <li><router-link to="">Rules</router-link></li>
-                <li><router-link to="">Team</router-link></li>
+                <li><router-link to="http://rules">Rules</router-link></li>
+                <li><router-link to="http://team">Team</router-link></li>
                 <li><router-link :to="{name: 'about'}">Contact Us</router-link></li>
 
 
@@ -30,7 +30,7 @@
                     </svg>
                 </div>
                 <div class="right">
-                    <li><router-link to="">Login</router-link></li>
+                    <li><router-link to="http://login">Login</router-link></li>
 
                 </div>
             </nav>
@@ -79,7 +79,11 @@ header {
             text-decoration: none;
             font-size: 24px;
             font-weight: bold;
-            color:#F5E6C9;
+            color:#928052;
+            &:hover {
+                color:#F5E6C9!important;
+
+            }
         }
     }
 }
@@ -90,6 +94,11 @@ header {
     cursor:pointer;
 }
 
+.router-link-active {
+
+    color:#F5E6C9!important;
+
+}
 
 
 @media screen and (max-width:1130px) {
@@ -132,10 +141,16 @@ header {
         height: 232px!important;
         li {
             a {
-                color:#F5E6C9;
+                color:#928052;
+                &:hover {
+                    color:#F5E6C9!important;
+
+                }
             }
         }
     }
 
 }
+
+
 </style>
