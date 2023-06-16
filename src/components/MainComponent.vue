@@ -15,7 +15,7 @@
                     <span style="--i:7">m</span>
                     <span style="--i:8">e</span>
                 </div>
-                <p class="text-white fs-5">{{ typedText }}</p>
+                <p class="text-white fs-5">Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.</p>
                 <button :class="{ 'opacity-0': isHidden }"><span>PLAY NOW</span></button>
             </div>
         </div>
@@ -27,25 +27,13 @@ export default {
     name: 'MainComponent',
     data() {
         return {
-            text: "Immerse yourself in a captivating gameplay experience as you collect and deploy a diverse array of cards featuring iconic characters and mystical creatures. Unearth ancient artifacts, unleash devastating spells, and command legendary heroes to conquer your foes and emerge victorious.",
-            typedText: "",
             isAnimated: false,
             isHidden: true,
             isLoaded: false
         }
     },
     methods: {
-        typeWriter() {
-            let i = 0;
-            const delay = 20;
-            const interval = setInterval(() => {
-                this.typedText += this.text.charAt(i);
-                i++;
-                if (i === this.text.length) {
-                    clearInterval(interval);
-                }
-            }, delay);
-        },
+    
         
     },
     components: {
@@ -59,9 +47,6 @@ export default {
         setTimeout(() => {
             this.isLoaded = true;
         }, 1000);
-        setTimeout(() => {
-            this.typeWriter();
-        }, 5500);
         setTimeout(() => {
             this.isHidden = false;
         }, 11000);
@@ -234,6 +219,10 @@ main{
 @media screen and (max-width: 576px){
     p{
         font-size: 0.8rem !important;
+        margin-top: -40px;
+    }
+    .home{
+        margin-top: -50px;
     }
 }
 </style>
