@@ -8,9 +8,9 @@
             <div class="center d-flex gap-5">
                 <li><router-link :to="{name: 'home'}">Home</router-link></li>
                 <li><router-link :to="{name: 'characters'}">Characters</router-link></li>
-                <li><router-link to="http://rules">Rules</router-link></li>
-                <li><router-link to="http://team">Team</router-link></li>
-                <li><router-link :to="{name: 'about'}">Contact Us</router-link></li>
+                <li><router-link :to="{name: 'rules'}">Rules</router-link></li>
+                <li><router-link :to="{name: 'team'}">Team</router-link></li>
+                <li><router-link :to="{name: 'contact'}">Contact Us</router-link></li>
                 
 
 
@@ -20,9 +20,9 @@
                         <ul class="nav-mobile" :class="{'nav-mobile-open': openhamb}">
                         <li @click="openhamb = true" ><router-link :to="{ name: 'home' }">Home</router-link></li>
                         <li  @click="openhamb = true"><router-link :to="{ name: 'characters' }">Characters</router-link></li>
-                        <li><router-link  to="/boooh" >Rules</router-link></li>
-                        <li><router-link  to="/booooh">Team</router-link></li>
-                        <li><router-link @click="openhamb = true" :to="{ name: 'about' }">Contact Us</router-link></li>
+                        <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
+                        <li><router-link  :to="{name: 'team'}">Team</router-link></li>
+                        <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
                         <li><a href="http://localhost:8000/login">Login</a></li>
 
                     </ul>
