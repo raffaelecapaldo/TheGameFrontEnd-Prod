@@ -62,6 +62,7 @@ export default {
 <style lang="scss" scoped>
 header {
     background-color: #202020;
+    height: 70px;
 }
 
 .logo {
