@@ -64,7 +64,7 @@ export default {
 
 // HOMEPAGE
 main{
-    overflow: hidden;
+    overflow-x: hidden;
     height: calc(100vh - 70px);
     background-color: #202020;
 
@@ -79,6 +79,9 @@ main{
             height: 100%;
             padding: 0 20px;
             gap: 16px;
+        }
+        .circle-animation{
+            display: none;
         }
         p{
             color: white;
@@ -169,9 +172,11 @@ main{
         max-height: 900px;
         overflow: hidden;
         .circle-animation{
+            display: inline-block;
             position: absolute;
             top: 0;
             left:50%;
+            opacity: 1;
             animation: rotate 20s linear infinite;
             @keyframes rotate {
                 0% {
