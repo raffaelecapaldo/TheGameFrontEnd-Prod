@@ -26,7 +26,7 @@
                         <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
                         <li><router-link  :to="{name: 'team'}">Team</router-link></li>
                         <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
-                        <li class="mt-5 ms-5 text-center" id="login-button"><a href="http://localhost:8000/login">Login</a></li>
+                        <li><a href="http://localhost:8000/login">Login</a></li>
                     </ul>
                     <i v-if="!this.openhamb" class="fa-solid fa-bars text-white fs-2 p-3"></i>
                     <i v-if="this.openhamb" class="fa-solid fa-xmark text-white fs-1 p-3"></i> 
@@ -125,11 +125,14 @@ color:#F5E6C9!important;
         z-index: 2;
         opacity: 0;
         transition: opacity 0.5s;
+        z-index: -1;
     }
     .nav-mobile-open {
         background-color: #202020;
-        height: calc(100vh - 70px) !important;
+        height: fit-content !important;
         opacity: 1;
+        z-index: 9999;
+        padding-bottom:20px;
     }
     #login-button{
         border: 1px solid #F8D67F;
@@ -140,7 +143,7 @@ color:#F5E6C9!important;
     display: none !important;
 }
 .overlay{
-    height: 100vh;
+    height: 397px;
     width: 30%;
     background-color: rgba(0, 0, 0, 0.397);
     position: absolute;
