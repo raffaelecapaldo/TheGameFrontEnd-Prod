@@ -4,7 +4,7 @@
     <div class="container px-4 py-4">
       <h1 class="text-uppercase fw-bold home-title text-center mb-5 py-5">OUR TEAM</h1>
       <div class="members py-5 d-flex flex-column">
-        <div v-for="member in members" class="row singleMember">
+        <div v-for="member in members" class="row singleMember my-4">
           <div class="col-12 col-lg-6">
             <img class="img-fluid" :src="'/img/team/' + member.name + '.png'" :alt="member.name">
           </div>
@@ -189,6 +189,14 @@ option {
         font-size: 1rem;
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 890px) {
+  .members .singleMember .memberInfo{
+        align-items: center !important;
+
   }
 }
 </style>
