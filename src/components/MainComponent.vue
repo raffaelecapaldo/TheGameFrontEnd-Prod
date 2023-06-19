@@ -5,6 +5,9 @@
                 <img src="/img/homepage/landscape-mobile.png" alt="" class="landscape-mobile w-100">
             </div>
             <div id="slogan" class="d-flex flex-column align-items-center">
+                <div class="circle-animation">
+                    <img src="/img/homepage/slider_circle.png" alt="">
+                </div>
                 <div class="waviy" :class="{ loaded: isLoaded }" id="waviy">
                     <span style="--i:1">w</span>
                     <span style="--i:2">a</span>
@@ -76,6 +79,9 @@ main{
             height: 100%;
             padding: 0 20px;
             gap: 16px;
+        }
+        .circle-animation{
+            display: none;
         }
         p{
             color: white;
@@ -157,11 +163,36 @@ main{
         font-size: 48px !important;
     }
     #slogan{
+        position: relative;
         justify-content: center;
         align-items: start !important;
         width: 45%;
         padding: 0 50px !important;
         gap: 40px !important;
+        max-height: 900px;
+        overflow: hidden;
+        .circle-animation{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left:50%;
+            opacity: 1;
+            animation: rotate 20s linear infinite;
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            img{
+                opacity: 0.03;
+                filter: grayscale(1);
+                width: 150%;
+                scale: 2;
+            }
+        }
         p{
             font-size: 1.3rem;
             text-align: start;
