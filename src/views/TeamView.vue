@@ -165,7 +165,8 @@ option {
   background-clip: text;
   letter-spacing: 0.1em;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2rem;
+  word-break: break-word;
 }
 
 .members .singleMember:nth-child(even) {
