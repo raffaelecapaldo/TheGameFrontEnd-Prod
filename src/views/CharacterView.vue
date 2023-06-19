@@ -36,7 +36,7 @@ export default {
     data() {
         return {
             charId: this.$route.params.id,
-            apiUlr: 'http://localhost:8000/api/characters',
+            apiUlr: 'https://raflarabel.000webhostapp.com/api/characters',
             char: null,
             stats: ['attack', 'defence', 'speed', 'life'],
             icons: {

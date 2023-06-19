@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     getMembers() {
-      axios.get('http://127.0.0.1:8000/api/team_members').then(res => {
+      axios.get('https://raflarabel.000webhostapp.com/api/team_members').then(res => {
         if (res.data.success) {
           this.members = res.data.results;
         }

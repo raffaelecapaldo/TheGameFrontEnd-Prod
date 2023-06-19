@@ -26,14 +26,14 @@
                         <li><router-link  :to="{name: 'rules'}" >Rules</router-link></li>
                         <li><router-link  :to="{name: 'team'}">Team</router-link></li>
                         <li><router-link @click="openhamb = true" :to="{ name: 'contact' }">Contact Us</router-link></li>
-                        <li><a href="http://localhost:8000/login">Login</a></li>
+                        <li><a href="https://raflarabel.000webhostapp.com/login">Login</a></li>
                     </ul>
                     <i v-if="!this.openhamb" class="fa-solid fa-bars text-white fs-2 p-3"></i>
                     <i v-if="this.openhamb" class="fa-solid fa-xmark text-white fs-1 p-3"></i> 
                 </div>
                 <!-- LOGIN -->
                 <div class="right">
-                    <li><a href="http://localhost:8000/login">Login</a></li>
+                    <li><a href="https://raflarabel.000webhostapp.com/login">Login</a></li>
 
                 </div>
             </nav>

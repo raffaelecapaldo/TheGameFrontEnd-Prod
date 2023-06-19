@@ -11,7 +11,7 @@ export const useResultStore = defineStore('results', () => {
 
   function getAllResults()
   {
-    const API_BASE = 'http://127.0.0.1:8000/api/characters'
+    const API_BASE = 'https://raflarabel.000webhostapp.com/api/characters'
     axios.get(API_BASE).then(res =>
       {
         if (res.data.success)
@@ -24,7 +24,7 @@ export const useResultStore = defineStore('results', () => {
   
   function getAllResultsWithPaginate(quantity)
   {
-    const API_BASE = 'http://127.0.0.1:8000/api/characters?quantity='
+    const API_BASE = 'https://raflarabel.000webhostapp.com/api/characters?quantity='
     axios.get(API_BASE+quantity).then(res =>
       {
         if (res.data.success)
@@ -37,7 +37,7 @@ export const useResultStore = defineStore('results', () => {
 
   function getOneResultWithID(id)
   {
-    const API_BASE = 'http://127.0.0.1:8000/api/characters/'
+    const API_BASE = 'https://raflarabel.000webhostapp.com/api/characters/'
     axios.get(API_BASE+id).then(res =>
       {
         if (res.data.success)
